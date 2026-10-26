@@ -1,0 +1,4 @@
+.env
+data/auth.json
+data/messages.json
+node_modules

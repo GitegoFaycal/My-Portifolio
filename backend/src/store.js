@@ -1,14 +1,8 @@
-import fs from 'fs/promises';
-import path from 'path';
-import { fileURLToPath } from 'url';
+import * as storage from './storage/index.js';
+import seed from '../data/portfolio.json' with { type: 'json' };
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-export const DATA_DIR = path.join(__dirname, '..', 'data');
-export const UPLOADS_DIR = path.join(__dirname, '..', 'uploads');
-
-const PORTFOLIO_FILE = path.join(DATA_DIR, 'portfolio.json');
-const MESSAGES_FILE = path.join(DATA_DIR, 'messages.json');
-const AUTH_FILE = path.join(DATA_DIR, 'auth.json');
+export { DATA_DIR, UPLOADS_DIR } from './paths.js';
+export const storageName = storage.name;
 
 export const SECTIONS = [
   'profile',
@@ -21,44 +15,28 @@ export const SECTIONS = [
   'settings',
 ];
 
-// Simple JSON-file persistence with a write queue so concurrent saves never interleave.
-let writeChain = Promise.resolve();
-
-async function readJson(file, fallback) {
-  try {
-    const raw = await fs.readFile(file, 'utf8');
-    return JSON.parse(raw);
-  } catch (err) {
-    if (err.code === 'ENOENT') return fallback;
-    throw err;
-  }
+// Content. On a fresh store (e.g. first deploy) it is seeded from data/portfolio.json.
+export async function getPortfolio() {
+  const data = await storage.get('portfolio', null);
+  if (data) return data;
+  await storage.set('portfolio', seed);
+  return seed;
 }
-
-function writeJson(file, value) {
-  writeChain = writeChain.then(async () => {
-    await fs.mkdir(path.dirname(file), { recursive: true });
-    const tmp = `${file}.tmp`;
-    await fs.writeFile(tmp, JSON.stringify(value, null, 2), 'utf8');
-    await fs.rename(tmp, file);
-  });
-  return writeChain;
-}
-
-export const getPortfolio = () => readJson(PORTFOLIO_FILE, {});
 
 export async function updateSection(section, value) {
   const data = await getPortfolio();
   data[section] = value;
-  await writeJson(PORTFOLIO_FILE, data);
+  await storage.set('portfolio', data);
   return data[section];
 }
 
-export const getMessages = () => readJson(MESSAGES_FILE, []);
+// Contact-form messages
+export const getMessages = () => storage.get('messages', []);
 
 export async function addMessage(message) {
   const list = await getMessages();
   list.unshift(message);
-  await writeJson(MESSAGES_FILE, list);
+  await storage.set('messages', list);
   return message;
 }
 
@@ -67,7 +45,7 @@ export async function updateMessage(id, patch) {
   const idx = list.findIndex((m) => m.id === id);
   if (idx === -1) return null;
   list[idx] = { ...list[idx], ...patch };
-  await writeJson(MESSAGES_FILE, list);
+  await storage.set('messages', list);
   return list[idx];
 }
 
@@ -75,9 +53,13 @@ export async function deleteMessage(id) {
   const list = await getMessages();
   const next = list.filter((m) => m.id !== id);
   if (next.length === list.length) return false;
-  await writeJson(MESSAGES_FILE, next);
+  await storage.set('messages', next);
   return true;
 }
 
-export const getAuth = () => readJson(AUTH_FILE, null);
-export const saveAuth = (value) => writeJson(AUTH_FILE, value);
+// Admin credentials
+export const getAuth = () => storage.get('auth', null);
+export const saveAuth = (value) => storage.set('auth', value);
+
+// Uploaded files: returns the URL to store in the content
+export const saveUpload = (file, filename) => storage.saveUpload(file, filename);
