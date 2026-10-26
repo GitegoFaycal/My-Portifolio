@@ -59,8 +59,7 @@ export default function Hero({ profile }) {
 
         <div className="mx-auto w-full max-w-sm">
           <div className="relative">
-            <div className="absolute -inset-3 rounded-[2rem] bg-gradient-to-tr from-brand-600 to-brand-300 opacity-70 blur-xl" />
-            <div className="relative overflow-hidden rounded-[2rem] border-4 border-white bg-white shadow-2xl">
+            <div className="relative overflow-hidden rounded-[2rem] border-4 border-white bg-white shadow-xl">
               {profile.photo ? (
                 <img src={assetUrl(profile.photo)} alt={profile.name} className="aspect-[4/5] w-full object-cover" />
               ) : (
