@@ -1,0 +1,8 @@
+node_modules
+.env
+data/auth.json
+data/messages.json
+data/*.tmp
+uploads/*
+!uploads/profile.jpg
+!uploads/steffimetz.png

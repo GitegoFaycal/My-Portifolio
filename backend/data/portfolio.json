@@ -1,0 +1,182 @@
+{
+  "profile": {
+    "name": "GITEGO Faycal",
+    "title": "Educator | Virtual Assistant | IT Professional",
+    "tagline": "Software developer and educator who builds practical web applications and helps learners build real programming skills.",
+    "location": "Kigali, Rwanda",
+    "phone": "+250783742078",
+    "email": "gitegofaycal@gmail.com",
+    "github": "https://github.com/GitegoFaycal",
+    "linkedin": "https://www.linkedin.com/in/gitego-faycal/",
+    "photo": "/uploads/profile.jpg",
+    "resumeUrl": "",
+    "availableForWork": true
+  },
+  "about": {
+    "summary": "Software Developer and Educator currently pursuing a Master's in Information Technology at UNILAK, with a Bachelor's Degree in Education with Honours in Mathematics and Computer Science from the University of Rwanda. Trained in full-stack software development with practical skills in Java, PHP, JavaScript, React.js, Node.js, Express.js, Spring Boot, Python, Flask, MySQL, Git, and modern development tools. Passionate about teaching software development and helping learners build practical programming, web development, database, and problem-solving skills. Combines strong technical knowledge, teaching experience, communication, and learner-centered instruction to support both software development projects and technology education.",
+    "competencies": [
+      "Team collaboration and coordination",
+      "Training, coaching and learner support",
+      "Clear verbal and written communication",
+      "Problem solving and practical decision-making",
+      "Organization and activity planning",
+      "Data and digital tools",
+      "Adaptability and continuous learning",
+      "Stakeholder and relationship building",
+      "Technology-supported operations",
+      "Professional responsibility and reliability"
+    ],
+    "strengths": [
+      "Strong combination of education, communication, and technical expertise.",
+      "Practical experience supporting people with different levels of understanding.",
+      "Ability to communicate complex information clearly and practically.",
+      "Strong problem-solving and adaptability skills.",
+      "Comfortable learning and using new digital technologies.",
+      "Team-oriented with a commitment to professional development."
+    ],
+    "languages": [
+      {
+        "id": "lang-1",
+        "name": "English",
+        "level": "Professional working proficiency"
+      },
+      {
+        "id": "lang-2",
+        "name": "Kinyarwanda",
+        "level": "Native"
+      }
+    ]
+  },
+  "skills": [
+    {
+      "id": "skill-1",
+      "category": "Programming",
+      "items": [
+        "Java",
+        "PHP",
+        "JavaScript",
+        "Python",
+        "HTML",
+        "CSS"
+      ]
+    },
+    {
+      "id": "skill-2",
+      "category": "Development",
+      "items": [
+        "React.js",
+        "Tailwind CSS",
+        "Vite",
+        "Node.js",
+        "Express.js",
+        "Java Spring Boot",
+        "Python Flask"
+      ]
+    },
+    {
+      "id": "skill-3",
+      "category": "Databases & Tools",
+      "items": [
+        "MySQL",
+        "Sequelize",
+        "Git",
+        "GitHub",
+        "VS Code",
+        "Postman",
+        "Maven"
+      ]
+    }
+  ],
+  "experience": [
+    {
+      "id": "exp-1",
+      "role": "Software Development Teacher",
+      "company": "St. Charles de Jésus School",
+      "location": "Kigali, Rwanda",
+      "start": "September 2026",
+      "end": "",
+      "current": true,
+      "bullets": [
+        "Teaching software development",
+        "Preparing lessons",
+        "Guiding practical programming activities",
+        "Assessing learners",
+        "Supporting students in developing technical skills"
+      ]
+    },
+    {
+      "id": "exp-2",
+      "role": "Teaching Intern – Mathematics & ICT",
+      "company": "College George Fox de Kagarama",
+      "location": "Kigali, Rwanda",
+      "start": "April 2025",
+      "end": "June 2025",
+      "current": false,
+      "bullets": [
+        "Taught Mathematics and ICT to secondary-school learners during school attachment.",
+        "Planned and delivered lessons according to learners' needs and curriculum requirements.",
+        "Explained technical and mathematical concepts clearly using practical, easy-to-understand examples.",
+        "Supported learners with different levels of understanding through individual guidance and classroom activities."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "id": "edu-1",
+      "degree": "Master's in Information Technology",
+      "institution": "University of Lay Adventist of Kigali (UNILAK)",
+      "start": "November 2025",
+      "end": "Present",
+      "note": ""
+    },
+    {
+      "id": "edu-2",
+      "degree": "Bachelor's Degree in Education with Honours in Mathematics and Computer Science",
+      "institution": "University of Rwanda – College of Education",
+      "start": "",
+      "end": "Graduated 2025",
+      "note": ""
+    }
+  ],
+  "certifications": [
+    {
+      "id": "cert-1",
+      "title": "Full-Stack Developer Certificate",
+      "issuer": "Digital Skills for Employability (DSE)",
+      "description": "Practical training in software development and digital technologies."
+    },
+    {
+      "id": "cert-2",
+      "title": "Virtual Assistant Certificate",
+      "issuer": "ALX",
+      "description": "Training in digital productivity, communication, organization, administration, and professional digital skills."
+    },
+    {
+      "id": "cert-3",
+      "title": "ICDL Certificate",
+      "issuer": "ICDL",
+      "description": "Digital literacy and computer productivity skills."
+    }
+  ],
+  "projects": [
+    {
+      "id": "proj-steffimetz",
+      "title": "Steffi Metz – The Gourmet Shop",
+      "description": "Website for a gourmet food business in Kigali, Rwanda: artisan breads, handmade cheeses, kombucha, gourmet boxes, cooking classes, events and catering. Includes a services overview, box catalogue, events, a loyalty programme section and a WhatsApp catalogue link.",
+      "image": "/uploads/steffimetz.png",
+      "tech": [
+        "PHP",
+        "React.js",
+        "Tailwind CSS"
+      ],
+      "liveUrl": "https://www.steffimetzcooking.com/",
+      "repoUrl": "",
+      "featured": true
+    }
+  ],
+  "settings": {
+    "siteTitle": "GITEGO Faycal",
+    "footerText": "Built with React, Tailwind CSS and Node.js.",
+    "showMessagesForm": true
+  }
+}
