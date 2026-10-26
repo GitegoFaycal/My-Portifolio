@@ -73,7 +73,7 @@ git push
 4. Click **Deploy** (the first deploy will fail health checks until storage is added, that is fine).
 5. Open the project → **Storage** tab → **Create Database**:
    - **Upstash → Redis** (free plan) → Connect to the project. Vercel adds the connection variables automatically; the backend accepts either `KV_REST_API_URL` / `KV_REST_API_TOKEN` or `UPSTASH_REDIS_REST_URL` / `UPSTASH_REDIS_REST_TOKEN`, so no renaming is needed.
-   - **Blob** (free plan) → Connect to the project. This adds `BLOB_READ_WRITE_TOKEN`.
+   - **Blob** (free plan) → choose **Public** access (this cannot be changed later; a private store will not work because images must be viewable by URL) → create it → in the store's **Projects** tab click **Connect to Project** and pick the backend project. This adds `BLOB_READ_WRITE_TOKEN` / `BLOB_STORE_ID`.
 6. Go to **Deployments** → latest deployment → **Redeploy** so the new variables are picked up.
 7. Open `https://<your-backend>.vercel.app/api/health`. You should see `{"ok":true,"storage":"vercel"}`.
 
