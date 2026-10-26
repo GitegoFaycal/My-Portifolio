@@ -84,7 +84,8 @@ Images that ship with the repo (`backend/uploads/`) are served by the backend; a
 
 1. **Add New → Project**, import the same repository again.
 2. Set **Root Directory** to `frontend`. Framework Preset: **Vite**. Name it e.g. `gitego-faycal`.
-3. Environment variable: `VITE_API_URL` = `https://<your-backend>.vercel.app` (no trailing slash).
+3. Open `frontend/vercel.json` and replace `my-portifolio-nine-red.vercel.app` with your backend URL. This makes the website proxy `/api` and `/uploads` to the backend, so no `VITE_API_URL` variable is needed and there are no cross-origin requests.
+   (Alternatively set the environment variable `VITE_API_URL` = `https://<your-backend>.vercel.app`; the website then calls the backend directly.)
 4. **Deploy**.
 
 ### Step 3 – Allow the frontend to call the backend
