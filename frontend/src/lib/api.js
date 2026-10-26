@@ -24,6 +24,14 @@ async function request(path, { method = 'GET', body, auth = false, formData } = 
     headers,
     body: formData ? formData : body !== undefined ? JSON.stringify(body) : undefined,
   });
+  const isJson = (res.headers.get('content-type') || '').includes('application/json');
+  if (!isJson && res.ok) {
+    throw new Error(
+      API_BASE
+        ? `The API at ${API_BASE} did not return JSON. Check that VITE_API_URL points to the backend.`
+        : 'VITE_API_URL is not set, so the website cannot reach the backend. Set it to your backend URL and redeploy.'
+    );
+  }
   let data = null;
   try {
     data = await res.json();

@@ -33,15 +33,26 @@ app.use(express.json({ limit: '2mb' }));
 app.use('/uploads', express.static(UPLOADS_DIR, { maxAge: '1d' }));
 
 // Make sure the admin account exists before handling any request (runs once per process).
-const ready = ensureAdmin().catch((err) => {
-  console.error('Failed to initialise admin account', err);
-  throw err;
-});
-app.use((_req, _res, next) => {
-  ready.then(() => next(), next);
+const ready = ensureAdmin().then(
+  () => null,
+  (err) => {
+    console.error('Failed to initialise admin account:', err.message);
+    return err;
+  }
+);
+app.use((req, _res, next) => {
+  if (req.path === '/api/health') return next();
+  ready.then((err) => next(err || undefined));
 });
 
-app.get('/api/health', (_req, res) => res.json({ ok: true, storage: storageName }));
+app.get('/api/health', (_req, res) => {
+  const ok = storageName !== 'not-configured';
+  res.status(ok ? 200 : 503).json({
+    ok,
+    storage: storageName,
+    ...(ok ? {} : { error: 'Storage is not configured. Connect Upstash Redis and Blob in the Vercel Storage tab, then redeploy.' }),
+  });
+});
 app.use('/api/auth', authRoutes);
 app.use('/api/portfolio', portfolioRoutes);
 app.use('/api/messages', messageRoutes);
@@ -50,7 +61,8 @@ app.use('/api/upload', uploadRoutes);
 app.use((_req, res) => res.status(404).json({ error: 'Not found' }));
 app.use((err, _req, res, _next) => {
   console.error(err);
-  res.status(err.message?.includes('CORS') ? 403 : 500).json({ error: err.message || 'Something went wrong' });
+  const status = err.status || (err.message?.includes('CORS') ? 403 : 500);
+  res.status(status).json({ error: err.message || 'Something went wrong' });
 });
 
 export default app;
