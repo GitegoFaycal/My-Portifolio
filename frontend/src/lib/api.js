@@ -1,4 +1,10 @@
-export const API_BASE = (import.meta.env.VITE_API_URL || '').replace(/\/$/, '');
+// Normalise VITE_API_URL: trim, drop trailing slash, and add https:// if the scheme was left out
+// (otherwise the browser would treat "example.vercel.app" as a relative path on the website itself).
+export const API_BASE = (() => {
+  const raw = (import.meta.env.VITE_API_URL || '').trim().replace(/\/+$/, '');
+  if (!raw) return '';
+  return /^https?:\/\//i.test(raw) ? raw : `https://${raw}`;
+})();
 const TOKEN_KEY = 'portfolio_admin_token';
 
 export const getToken = () => localStorage.getItem(TOKEN_KEY);
