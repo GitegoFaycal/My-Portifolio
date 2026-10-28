@@ -94,6 +94,22 @@ Images that ship with the repo (`backend/uploads/`) are served by the backend; a
 2. Redeploy the backend.
 3. Open your frontend URL and `/admin/login`. Log in, change the password under **Settings**, and you are live.
 
+### Step 4 – Receive contact-form messages by email
+
+Messages are always saved in the dashboard inbox. To also get them in your email, add these variables to the **backend** project (Settings → Environment Variables) and redeploy:
+
+| Name            | Value                                                                                   |
+| --------------- | --------------------------------------------------------------------------------------- |
+| `CONTACT_EMAIL` | the address that should receive messages (optional, defaults to the email in your profile) |
+| `SMTP_HOST`     | `smtp.gmail.com`                                                                        |
+| `SMTP_PORT`     | `465`                                                                                   |
+| `SMTP_USER`     | your Gmail address                                                                      |
+| `SMTP_PASS`     | a Gmail **App password**: turn on 2-Step Verification, then create one at <https://myaccount.google.com/apppasswords> |
+
+Alternatively use [Resend](https://resend.com) (free tier): set `RESEND_API_KEY` instead of the `SMTP_*` variables. Without a verified domain Resend only delivers to the email you signed up with, which is fine for this use.
+
+`/api/health` shows which provider is active (`"mail": "smtp"`, `"resend"` or `"none"`). Each email has the visitor as **Reply-To**, so replying from your inbox goes straight to them.
+
 ### Notes
 
 - Uploads are limited to 4 MB per file on Vercel.

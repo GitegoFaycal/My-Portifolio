@@ -2,6 +2,7 @@ import { Router } from 'express';
 import crypto from 'crypto';
 import { getMessages, addMessage, updateMessage, deleteMessage } from '../store.js';
 import { requireAuth } from '../middleware/auth.js';
+import { notifyNewMessage } from '../mailer.js';
 
 const router = Router();
 
@@ -23,7 +24,15 @@ router.post('/', async (req, res) => {
     read: false,
     createdAt: new Date().toISOString(),
   });
-  res.status(201).json({ ok: true, id: saved.id });
+  // Forward the message to the owner's email. The message is already in the inbox,
+  // so an email failure is logged but does not fail the request.
+  let emailed = false;
+  try {
+    emailed = await notifyNewMessage(saved);
+  } catch (err) {
+    console.error('Could not email contact message:', err.message);
+  }
+  res.status(201).json({ ok: true, id: saved.id, emailed });
 });
 
 // Admin: inbox

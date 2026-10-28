@@ -5,6 +5,7 @@ import authRoutes, { ensureAdmin } from './routes/auth.js';
 import portfolioRoutes from './routes/portfolio.js';
 import messageRoutes from './routes/messages.js';
 import uploadRoutes from './routes/upload.js';
+import { mailProvider } from './mailer.js';
 
 if (!process.env.JWT_SECRET) {
   throw new Error('JWT_SECRET is missing. Copy .env.example to .env and set it.');
@@ -50,6 +51,7 @@ app.get('/api/health', (_req, res) => {
   res.status(ok ? 200 : 503).json({
     ok,
     storage: storageName,
+    mail: mailProvider(),
     ...(ok ? {} : { error: 'Storage is not configured. Connect Upstash Redis and Blob in the Vercel Storage tab, then redeploy.' }),
   });
 });
