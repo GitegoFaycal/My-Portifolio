@@ -1,8 +1,8 @@
 {
   "profile": {
     "name": "GITEGO Faycal",
-    "title": "Educator | Virtual Assistant | IT Professional",
-    "tagline": "Software developer and educator who builds practical web applications and helps learners build real programming skills.",
+    "title": "Computer Science Educator | IT Support | Software Developer",
+    "tagline": "Educator and IT professional who teaches software development, runs a school computer lab and builds practical web applications.",
     "location": "Kigali, Rwanda",
     "phone": "+250783742078",
     "email": "gitegofaycal@gmail.com",
@@ -13,25 +13,27 @@
     "availableForWork": true
   },
   "about": {
-    "summary": "Software Developer and Educator currently pursuing a Master's in Information Technology at UNILAK, with a Bachelor's Degree in Education with Honours in Mathematics and Computer Science from the University of Rwanda. Trained in full-stack software development with practical skills in Java, PHP, JavaScript, React.js, Node.js, Express.js, Spring Boot, Python, Flask, MySQL, Git, and modern development tools. Passionate about teaching software development and helping learners build practical programming, web development, database, and problem-solving skills. Combines strong technical knowledge, teaching experience, communication, and learner-centered instruction to support both software development projects and technology education.",
+    "summary": "Computer Science and Mathematics graduate (BEd Honours, University of Rwanda) now pursuing a Master's in Information Technology at UNILAK. Currently Software Development Teacher and ICT Lab Support at St. Charles de Jésus School, with hands-on experience installing, configuring and troubleshooting Windows computers, software, networks and peripherals, and a strong record of explaining technical issues clearly to non-technical users. Trained in full-stack development (Java, PHP, JavaScript, React.js, Node.js, Express.js, Spring Boot, Python, Flask, MySQL, Git) and certified in ICDL, DSE Full-Stack Development and ALX Virtual Assistance. Passionate about teaching software development and helping learners build practical programming, web development, database and problem-solving skills.",
     "competencies": [
-      "Team collaboration and coordination",
+      "First-line IT support and troubleshooting",
       "Training, coaching and learner support",
-      "Clear verbal and written communication",
+      "Clear verbal and written communication (English and Kinyarwanda)",
+      "Incident logging, asset inventories and reporting in Excel",
       "Problem solving and practical decision-making",
+      "Team collaboration and coordination",
       "Organization and activity planning",
       "Data and digital tools",
       "Adaptability and continuous learning",
       "Stakeholder and relationship building",
-      "Technology-supported operations",
       "Professional responsibility and reliability"
     ],
     "strengths": [
-      "Strong combination of education, communication, and technical expertise.",
-      "Practical experience supporting people with different levels of understanding.",
+      "Strong combination of education, communication and technical expertise.",
+      "Patient, clear communicator with daily experience supporting users of all skill levels.",
+      "Organised and reliable: accurate records, follow-up and timely feedback to users.",
       "Ability to communicate complex information clearly and practically.",
       "Strong problem-solving and adaptability skills.",
-      "Comfortable learning and using new digital technologies.",
+      "Fast learner of new tools; comfortable working independently in Kigali and upcountry.",
       "Team-oriented with a commitment to professional development."
     ],
     "languages": [
@@ -62,7 +64,7 @@
     },
     {
       "id": "skill-2",
-      "category": "Development",
+      "category": "Web development",
       "items": [
         "React.js",
         "Tailwind CSS",
@@ -75,7 +77,7 @@
     },
     {
       "id": "skill-3",
-      "category": "Databases & Tools",
+      "category": "Databases & dev tools",
       "items": [
         "MySQL",
         "Sequelize",
@@ -83,25 +85,96 @@
         "GitHub",
         "VS Code",
         "Postman",
-        "Maven"
+        "Maven",
+        "XAMPP"
+      ]
+    },
+    {
+      "id": "skill-4",
+      "category": "Operating systems",
+      "items": [
+        "Windows 10/11 installation & configuration",
+        "Windows updates & user accounts",
+        "Linux (Ubuntu) command line basics"
+      ]
+    },
+    {
+      "id": "skill-5",
+      "category": "Hardware & peripherals",
+      "items": [
+        "Desktop & laptop setup",
+        "RAM & storage upgrades",
+        "Printer, scanner & projector installation",
+        "Cable & peripheral troubleshooting"
+      ]
+    },
+    {
+      "id": "skill-6",
+      "category": "Networking",
+      "items": [
+        "LAN & Wi-Fi setup",
+        "IP configuration",
+        "Connectivity troubleshooting",
+        "Basic router & switch handling"
+      ]
+    },
+    {
+      "id": "skill-7",
+      "category": "IT support practice",
+      "items": [
+        "First-line diagnosis",
+        "Remote & on-site assistance",
+        "Escalation & follow-up",
+        "Incident logging",
+        "Asset inventories in Excel",
+        "Step-by-step user guides"
+      ]
+    },
+    {
+      "id": "skill-8",
+      "category": "Office, design & collaboration",
+      "items": [
+        "Microsoft Office / Microsoft 365",
+        "Excel tracking & reporting",
+        "Microsoft Teams",
+        "Slack",
+        "Skype",
+        "Figma",
+        "Adobe Photoshop",
+        "Adobe Illustrator",
+        "Antivirus & update compliance"
       ]
     }
   ],
   "experience": [
     {
       "id": "exp-1",
-      "role": "Software Development Teacher",
+      "role": "Software Development Teacher & ICT Lab Support",
       "company": "St. Charles de Jésus School",
-      "location": "Kigali, Rwanda",
+      "location": "Kicukiro, Kigali, Rwanda",
       "start": "September 2026",
       "end": "",
       "current": true,
       "bullets": [
-        "Teaching software development",
-        "Preparing lessons",
-        "Guiding practical programming activities",
-        "Assessing learners",
-        "Supporting students in developing technical skills"
+        "Deliver TVET Level 3 modules in Website Development, Basic Graphic Design (Photoshop, Illustrator), UI/UX Design, Version Control (Git/GitHub) and Project Requirements Analysis.",
+        "Set up and maintain the school computer lab for practical lessons: install and update Windows software, create user accounts, configure printers and projectors, and keep machines virus-free.",
+        "Act as first point of contact for students' and teachers' hardware, software and network problems; diagnose, fix or escalate to the school administration.",
+        "Log issues and follow up until each user is satisfied.",
+        "Produce all teaching materials, cheat-sheets and step-by-step guides used in class.",
+        "Guide practical programming activities and assess learners' technical skills."
+      ]
+    },
+    {
+      "id": "exp-3",
+      "role": "Assistant Photographer & Media Support",
+      "company": "University of Rwanda – College of Education",
+      "location": "Rwanda",
+      "start": "2022",
+      "end": "2025",
+      "current": false,
+      "bullets": [
+        "Assisted the campus photographer in covering major university events (graduations, conferences, official visits), including setting up and operating cameras, lighting and audio equipment.",
+        "Supported live streaming of events: equipment connection, laptops, internet connectivity and troubleshooting during broadcasts."
       ]
     },
     {
@@ -116,6 +189,7 @@
         "Taught Mathematics and ICT to secondary-school learners during school attachment.",
         "Planned and delivered lessons according to learners' needs and curriculum requirements.",
         "Explained technical and mathematical concepts clearly using practical, easy-to-understand examples.",
+        "Supported learners and staff with everyday computer use during ICT practicals.",
         "Supported learners with different levels of understanding through individual guidance and classroom activities."
       ]
     }
@@ -123,22 +197,28 @@
   "education": [
     {
       "id": "edu-1",
-      "degree": "Master's in Information Technology",
+      "degree": "Master of Information Technology",
       "institution": "University of Lay Adventist of Kigali (UNILAK)",
       "start": "November 2025",
       "end": "Present",
-      "note": ""
+      "note": "In progress."
     },
     {
       "id": "edu-2",
-      "degree": "Bachelor's Degree in Education with Honours in Mathematics and Computer Science",
+      "degree": "Bachelor of Education with Honours in Mathematics and Computer Science (Secondary)",
       "institution": "University of Rwanda – College of Education",
-      "start": "",
-      "end": "Graduated 2025",
-      "note": ""
+      "start": "2021",
+      "end": "2025",
+      "note": "Second Class Honours, Lower Division. Conferred at the congregation ceremony of 17 October 2025."
     }
   ],
   "certifications": [
+    {
+      "id": "cert-3",
+      "title": "ICDL Profile Certificate",
+      "issuer": "ICDL Africa – February 2026",
+      "description": "Modules completed: Computer & Online Essentials, Teamwork, Documents, Spreadsheets, Presentation (Advanced), Cyber Security, Artificial Intelligence, Cloud Computing, E-Commerce and Data Analytics."
+    },
     {
       "id": "cert-1",
       "title": "Full-Stack Developer Certificate",
@@ -147,15 +227,9 @@
     },
     {
       "id": "cert-2",
-      "title": "Virtual Assistant Certificate",
-      "issuer": "ALX",
-      "description": "Training in digital productivity, communication, organization, administration, and professional digital skills."
-    },
-    {
-      "id": "cert-3",
-      "title": "ICDL Certificate",
-      "issuer": "ICDL",
-      "description": "Digital literacy and computer productivity skills."
+      "title": "Virtual Assistant Certificate of Achievement",
+      "issuer": "ALX – September 2024",
+      "description": "8-week programme in Virtual Assistance Skills in the Digital Age: digital productivity, communication and administration with Microsoft Excel, Teams and Slack."
     }
   ],
   "projects": [

@@ -110,6 +110,17 @@ Alternatively use [Resend](https://resend.com) (free tier): set `RESEND_API_KEY`
 
 `/api/health` shows which provider is active (`"mail": "smtp"`, `"resend"` or `"none"`). Each email has the visitor as **Reply-To**, so replying from your inbox goes straight to them.
 
+### Updating the content from `portfolio.json`
+
+On Vercel the content lives in Redis and is only copied from `backend/data/portfolio.json` on the very first run. After editing that file, push it to the live site with:
+
+```bash
+cd backend
+API_URL=https://<your-backend>.vercel.app ADMIN_USERNAME=admin ADMIN_PASSWORD=<your password> node scripts/sync-content.mjs
+```
+
+Add `--dry-run` to see what would change first, or `--sections=about,skills` to limit it. The profile photo, CV link, projects and settings edited from the dashboard are kept.
+
 ### Notes
 
 - Uploads are limited to 4 MB per file on Vercel.

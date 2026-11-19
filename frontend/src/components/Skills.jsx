@@ -8,7 +8,7 @@ export default function Skills({ skills }) {
   return (
     <section id="skills" className="bg-white py-20">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <SectionHeading eyebrow="Skills" title="Technical & digital skills" description="Languages, frameworks and tools I work with every day." />
+        <SectionHeading eyebrow="Skills" title="Technical & digital skills" description="Programming, IT support and productivity tools I work with every day." />
         <div className="grid gap-6 md:grid-cols-3">
           {skills.map((group, i) => {
             const Icon = ICONS[i % ICONS.length];
