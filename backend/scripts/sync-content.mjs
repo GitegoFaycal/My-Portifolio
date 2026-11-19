@@ -1,12 +1,13 @@
 // Pushes the content of data/portfolio.json to a deployed backend (e.g. on Vercel),
 // where content lives in Redis and is only seeded from the JSON file on the very first run.
 //
-// Usage (from the backend folder):
-//   API_URL=https://<your-backend>.vercel.app ADMIN_USERNAME=admin ADMIN_PASSWORD=... node scripts/sync-content.mjs
+// Usage (from the backend folder, works in PowerShell, cmd and bash):
+//   node scripts/sync-content.mjs --api-url=https://<your-backend>.vercel.app --username=admin --password=...
 //   node scripts/sync-content.mjs --sections=about,skills      # only some sections
 //   node scripts/sync-content.mjs --dry-run                     # show what would change
 //
-// ADMIN_USERNAME / ADMIN_PASSWORD fall back to the values in .env. The profile photo,
+// Instead of the flags you can set API_URL, ADMIN_USERNAME and ADMIN_PASSWORD in the
+// environment; the username and password fall back to the values in .env. The profile photo,
 // CV link, projects and settings that were changed from the dashboard are kept.
 
 import 'dotenv/config';
@@ -15,13 +16,20 @@ import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
-const args = Object.fromEntries(process.argv.slice(2).map((a) => a.replace(/^--/, '').split('=')));
+const args = Object.fromEntries(
+  process.argv.slice(2).map((a) => {
+    const flag = a.replace(/^--/, '');
+    const eq = flag.indexOf('=');
+    return eq === -1 ? [flag, true] : [flag.slice(0, eq), flag.slice(eq + 1)];
+  })
+);
 
-const API_URL = (process.env.API_URL || `http://localhost:${process.env.PORT || 5000}`).replace(/\/+$/, '');
-const username = process.env.ADMIN_USERNAME;
-const password = process.env.ADMIN_PASSWORD;
+const rawUrl = args['api-url'] || process.env.API_URL || `http://localhost:${process.env.PORT || 5000}`;
+const API_URL = (/^https?:\/\//i.test(rawUrl) ? rawUrl : `https://${rawUrl}`).replace(/\/+$/, '');
+const username = args.username || process.env.ADMIN_USERNAME;
+const password = args.password || process.env.ADMIN_PASSWORD;
 if (!username || !password) {
-  console.error('Set ADMIN_USERNAME and ADMIN_PASSWORD (environment or .env).');
+  console.error('Pass --username=... --password=... (or set ADMIN_USERNAME / ADMIN_PASSWORD in the environment or .env).');
   process.exit(1);
 }
 

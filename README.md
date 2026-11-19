@@ -116,7 +116,7 @@ On Vercel the content lives in Redis and is only copied from `backend/data/portf
 
 ```bash
 cd backend
-API_URL=https://<your-backend>.vercel.app ADMIN_USERNAME=admin ADMIN_PASSWORD=<your password> node scripts/sync-content.mjs
+node scripts/sync-content.mjs --api-url=https://<your-backend>.vercel.app --username=admin --password=<your password>
 ```
 
 Add `--dry-run` to see what would change first, or `--sections=about,skills` to limit it. The profile photo, CV link, projects and settings edited from the dashboard are kept.
